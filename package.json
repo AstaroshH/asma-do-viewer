@@ -1,0 +1,64 @@
+{
+ "name": "asma-doc-viewer",
+ "version": "0.1.5",
+ "description": "test",
+ "author": "",
+ "license": "ISC",
+ "repository": {
+  "url": ""
+ },
+ "main": "build/index.js",
+ "types": "build/index.d.ts",
+ "dependencies": {
+  "pdfjs-dist": "^2.6.347",
+  "react-pdf": "^5.2.0",
+  "styled-components": "^5.2.1"
+ },
+ "devDependencies": {
+  "@testing-library/jest-dom": "^5.11.9",
+  "@testing-library/react": "^11.2.5",
+  "@testing-library/user-event": "^13.0.6",
+  "@types/jest": "^26.0.21",
+  "@types/node": "^14.14.35",
+  "@types/pdfjs-dist": "^2.7.0",
+  "@types/react": "^17.0.3",
+  "@types/react-dom": "^17.0.2",
+  "@types/react-pdf": "4.0.5",
+  "@types/styled-components": "^5.1.9",
+  "generate-changelog": "^1.8.0",
+  "react": "^17.0.1",
+  "react-dom": "^17.0.1",
+  "react-scripts": "4.0.3",
+  "typescript": "^4.2.3"
+ },
+ "scripts": {
+  "start": "react-scripts start",
+  "build": "rm -rf build && tsc -p tsconfig-npm.json",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject",
+  "version:patch": "npm run version:pre && npm run version:changelog && npm version patch && npm run version:post",
+  "version:minor": "npm run version:pre && npm run version:changelog && npm version minor && npm run version:post",
+  "version:major": "npm run version:pre && npm run version:changelog && npm version major && npm run version:post",
+  "version:pre": "if [ $(git rev-parse --abbrev-ref HEAD) != 'master' ]; then echo \"\\033[1m\\033[31mCurrently on $(git rev-parse --abbrev-ref HEAD) branch. Please checkout master.\\033[0m\"; exit 1; else exit 0; fi",
+  "version:changelog": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md'",
+  "version:post": "git push origin master && git push origin master --tags",
+  "build-release:patch": "react-scripts test --watchAll=false && npm run build && npm run version:patch",
+  "build-release:minor": "react-scripts test --watchAll=false && npm run build && npm run version:minor",
+  "build-release:major": "react-scripts test --watchAll=false && npm run build && npm run version:major"
+ },
+ "eslintConfig": {
+  "extends": "react-app"
+ },
+ "browserslist": {
+  "production": [
+   ">0.2%",
+   "not dead",
+   "not op_mini all"
+  ],
+  "development": [
+   "last 1 chrome version",
+   "last 1 firefox version",
+   "last 1 safari version"
+  ]
+ }
+}

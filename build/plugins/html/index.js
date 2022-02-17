@@ -18,7 +18,7 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
 };
@@ -31,7 +31,7 @@ var styled_components_1 = __importDefault(require("styled-components"));
 var fileLoaders_1 = require("../../utils/fileLoaders");
 var HTMLRenderer = function (_a) {
     var currentDocument = _a.mainState.currentDocument;
-    react_1.useEffect(function () {
+    (0, react_1.useEffect)(function () {
         var b64String = currentDocument === null || currentDocument === void 0 ? void 0 : currentDocument.fileData;
         var bodyBase64 = (b64String === null || b64String === void 0 ? void 0 : b64String.replace("data:text/html;base64,", "")) || "";
         var body = window.atob(bodyBase64);

@@ -25,7 +25,7 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
 };
@@ -33,11 +33,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PDFProvider = exports.PDFContext = void 0;
 var react_1 = __importStar(require("react"));
 var reducer_1 = require("./reducer");
-var PDFContext = react_1.createContext({ state: reducer_1.initialPDFState, dispatch: function () { return null; } });
+var PDFContext = (0, react_1.createContext)({ state: reducer_1.initialPDFState, dispatch: function () { return null; } });
 exports.PDFContext = PDFContext;
 var PDFProvider = function (_a) {
     var children = _a.children, mainState = _a.mainState;
-    var _b = react_1.useReducer(reducer_1.reducer, __assign(__assign({}, reducer_1.initialPDFState), { mainState: mainState })), state = _b[0], dispatch = _b[1];
+    var _b = (0, react_1.useReducer)(reducer_1.reducer, __assign(__assign({}, reducer_1.initialPDFState), { mainState: mainState })), state = _b[0], dispatch = _b[1];
     return (react_1.default.createElement(PDFContext.Provider, { value: { state: state, dispatch: dispatch } }, children));
 };
 exports.PDFProvider = PDFProvider;

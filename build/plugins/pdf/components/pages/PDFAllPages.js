@@ -14,7 +14,7 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
 };
@@ -26,11 +26,12 @@ exports.PDFAllPages = void 0;
 var react_1 = __importStar(require("react"));
 var state_1 = require("../../state");
 var PDFSinglePage_1 = __importDefault(require("./PDFSinglePage"));
-exports.PDFAllPages = function (props) {
-    var numPages = react_1.useContext(state_1.PDFContext).state.numPages;
+var PDFAllPages = function (props) {
+    var numPages = (0, react_1.useContext)(state_1.PDFContext).state.numPages;
     var PagesArray = [];
     for (var i = 0; i < numPages; i++) {
         PagesArray.push(react_1.default.createElement(PDFSinglePage_1.default, { key: i + 1, pageNum: i + 1 }));
     }
     return react_1.default.createElement(react_1.default.Fragment, null, PagesArray);
 };
+exports.PDFAllPages = PDFAllPages;

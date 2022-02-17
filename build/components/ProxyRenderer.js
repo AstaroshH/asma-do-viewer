@@ -18,7 +18,7 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
 };
@@ -31,12 +31,12 @@ var useDocumentLoader_1 = require("../utils/useDocumentLoader");
 var useWindowSize_1 = require("../utils/useWindowSize");
 var common_1 = require("./common");
 var icons_1 = require("./icons");
-exports.ProxyRenderer = function () {
-    var _a = useDocumentLoader_1.useDocumentLoader(), state = _a.state, dispatch = _a.dispatch, CurrentRenderer = _a.CurrentRenderer;
+var ProxyRenderer = function () {
+    var _a = (0, useDocumentLoader_1.useDocumentLoader)(), state = _a.state, dispatch = _a.dispatch, CurrentRenderer = _a.CurrentRenderer;
     var documents = state.documents, documentLoading = state.documentLoading, currentDocument = state.currentDocument;
-    var size = useWindowSize_1.useWindowSize();
-    var containerRef = react_1.useCallback(function (node) {
-        node && dispatch(actions_1.setRendererRect(node === null || node === void 0 ? void 0 : node.getBoundingClientRect()));
+    var size = (0, useWindowSize_1.useWindowSize)();
+    var containerRef = (0, react_1.useCallback)(function (node) {
+        node && dispatch((0, actions_1.setRendererRect)(node === null || node === void 0 ? void 0 : node.getBoundingClientRect()));
     }, 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [size]);
@@ -67,9 +67,10 @@ exports.ProxyRenderer = function () {
     return (react_1.default.createElement(Container, { id: "proxy-renderer", ref: containerRef },
         react_1.default.createElement(Contents, null)));
 };
+exports.ProxyRenderer = ProxyRenderer;
 var Container = styled_components_1.default.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  display: flex;\n  flex: 1;\n  overflow-y: auto;\n"], ["\n  display: flex;\n  flex: 1;\n  overflow-y: auto;\n"])));
 var LoadingContainer = styled_components_1.default.div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  display: flex;\n  flex: 1;\n  height: 75px;\n  align-items: center;\n  justify-content: center;\n"], ["\n  display: flex;\n  flex: 1;\n  height: 75px;\n  align-items: center;\n  justify-content: center;\n"])));
-var spinAnim = styled_components_1.keyframes(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"], ["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"])));
+var spinAnim = (0, styled_components_1.keyframes)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"], ["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"])));
 var LoadingIconContainer = styled_components_1.default.div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  animation-name: ", ";\n  animation-duration: 4s;\n  animation-timing-function: linear;\n  animation-iteration-count: infinite;\n"], ["\n  animation-name: ", ";\n  animation-duration: 4s;\n  animation-timing-function: linear;\n  animation-iteration-count: infinite;\n"])), spinAnim);
-var DownloadButton = styled_components_1.default(common_1.LinkButton)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  width: 130px;\n  height: 30px;\n  background-color: ", ";\n  @media (max-width: 768px) {\n    width: 125px;\n    height: 25px;\n  }\n"], ["\n  width: 130px;\n  height: 30px;\n  background-color: ", ";\n  @media (max-width: 768px) {\n    width: 125px;\n    height: 25px;\n  }\n"])), function (props) { return props.theme.primary; });
+var DownloadButton = (0, styled_components_1.default)(common_1.LinkButton)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  width: 130px;\n  height: 30px;\n  background-color: ", ";\n  @media (max-width: 768px) {\n    width: 125px;\n    height: 25px;\n  }\n"], ["\n  width: 130px;\n  height: 30px;\n  background-color: ", ";\n  @media (max-width: 768px) {\n    width: 125px;\n    height: 25px;\n  }\n"])), function (props) { return props.theme.primary; });
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;

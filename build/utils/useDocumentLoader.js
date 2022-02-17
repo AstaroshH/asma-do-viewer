@@ -20,12 +20,12 @@ var useRendererSelector_1 = require("./useRendererSelector");
 /**
  * Custom Hook for loading the current document into context
  */
-exports.useDocumentLoader = function () {
-    var _a = react_1.useContext(state_1.DocViewerContext), state = _a.state, dispatch = _a.dispatch;
+var useDocumentLoader = function () {
+    var _a = (0, react_1.useContext)(state_1.DocViewerContext), state = _a.state, dispatch = _a.dispatch;
     var currentFileNo = state.currentFileNo, currentDocument = state.currentDocument;
-    var CurrentRenderer = useRendererSelector_1.useRendererSelector().CurrentRenderer;
+    var CurrentRenderer = (0, useRendererSelector_1.useRendererSelector)().CurrentRenderer;
     var documentURI = (currentDocument === null || currentDocument === void 0 ? void 0 : currentDocument.uri) || "";
-    react_1.useEffect(function () {
+    (0, react_1.useEffect)(function () {
         if (!currentDocument)
             return;
         if (currentDocument.fileType !== undefined)
@@ -36,7 +36,7 @@ exports.useDocumentLoader = function () {
             var contentTypeRaw = response.headers.get("content-type");
             var contentTypes = (contentTypeRaw === null || contentTypeRaw === void 0 ? void 0 : contentTypeRaw.split(";")) || [];
             var contentType = contentTypes.length ? contentTypes[0] : undefined;
-            dispatch(actions_1.updateCurrentDocument(__assign(__assign({}, currentDocument), { fileType: contentType || undefined })));
+            dispatch((0, actions_1.updateCurrentDocument)(__assign(__assign({}, currentDocument), { fileType: contentType || undefined })));
         });
         return function () {
             controller.abort();
@@ -46,7 +46,7 @@ exports.useDocumentLoader = function () {
     // be a dependancy of the useEffect
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [currentFileNo, documentURI]);
-    react_1.useEffect(function () {
+    (0, react_1.useEffect)(function () {
         var _a;
         if (!currentDocument || CurrentRenderer === undefined)
             return;
@@ -54,24 +54,24 @@ exports.useDocumentLoader = function () {
         var signal = controller.signal;
         var fileLoaderComplete = function (fileReader) {
             if (!currentDocument || !fileReader) {
-                dispatch(actions_1.setDocumentLoading(false));
+                dispatch((0, actions_1.setDocumentLoading)(false));
                 return;
             }
             var updatedDocument = __assign({}, currentDocument);
             if (fileReader.result !== null) {
                 updatedDocument.fileData = fileReader.result;
             }
-            dispatch(actions_1.updateCurrentDocument(updatedDocument));
-            dispatch(actions_1.setDocumentLoading(false));
+            dispatch((0, actions_1.updateCurrentDocument)(updatedDocument));
+            dispatch((0, actions_1.setDocumentLoading)(false));
         };
         if (CurrentRenderer === null) {
-            dispatch(actions_1.setDocumentLoading(false));
+            dispatch((0, actions_1.setDocumentLoading)(false));
         }
         else if (CurrentRenderer.fileLoader !== undefined) {
             (_a = CurrentRenderer.fileLoader) === null || _a === void 0 ? void 0 : _a.call(CurrentRenderer, { documentURI: documentURI, signal: signal, fileLoaderComplete: fileLoaderComplete });
         }
         else {
-            fileLoaders_1.defaultFileLoader({ documentURI: documentURI, signal: signal, fileLoaderComplete: fileLoaderComplete });
+            (0, fileLoaders_1.defaultFileLoader)({ documentURI: documentURI, signal: signal, fileLoaderComplete: fileLoaderComplete });
         }
         return function () {
             controller.abort();
@@ -79,3 +79,4 @@ exports.useDocumentLoader = function () {
     }, [CurrentRenderer]);
     return { state: state, dispatch: dispatch, CurrentRenderer: CurrentRenderer };
 };
+exports.useDocumentLoader = useDocumentLoader;

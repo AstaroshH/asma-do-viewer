@@ -86,16 +86,20 @@ var _fileLoader = function (_a) {
         return e;
     });
 };
-exports.arrayBufferFileLoader = function (props) {
+var arrayBufferFileLoader = function (props) {
     return _fileLoader(__assign(__assign({}, props), { readerTypeFunction: "arrayBuffer" }));
 };
-exports.dataURLFileLoader = function (props) {
+exports.arrayBufferFileLoader = arrayBufferFileLoader;
+var dataURLFileLoader = function (props) {
     return _fileLoader(__assign(__assign({}, props), { readerTypeFunction: "dataURL" }));
 };
-exports.textFileLoader = function (props) {
+exports.dataURLFileLoader = dataURLFileLoader;
+var textFileLoader = function (props) {
     return _fileLoader(__assign(__assign({}, props), { readerTypeFunction: "text" }));
 };
-exports.binaryStringFileLoader = function (props) {
+exports.textFileLoader = textFileLoader;
+var binaryStringFileLoader = function (props) {
     return _fileLoader(__assign(__assign({}, props), { readerTypeFunction: "binaryString" }));
 };
+exports.binaryStringFileLoader = binaryStringFileLoader;
 exports.defaultFileLoader = exports.dataURLFileLoader;

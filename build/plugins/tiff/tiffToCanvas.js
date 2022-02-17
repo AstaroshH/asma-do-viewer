@@ -304,7 +304,7 @@ var parseFileDirectory = function (byteOffset) {
         return parseFileDirectory(nextIFDByteOffset);
     }
 };
-exports.parseTIFF = function (tiffArrayBuffer, _canvas) {
+var parseTIFF = function (tiffArrayBuffer, _canvas) {
     var canvas = _canvas || document.createElement("canvas");
     if (!tiffArrayBuffer)
         return;
@@ -599,3 +599,4 @@ exports.parseTIFF = function (tiffArrayBuffer, _canvas) {
     }
     return canvas;
 };
+exports.parseTIFF = parseTIFF;

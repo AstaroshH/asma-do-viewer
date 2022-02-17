@@ -19,7 +19,7 @@ exports.initialPDFState = {
     numPages: 0,
     currentPage: 1,
 };
-exports.reducer = function (state, action) {
+var reducer = function (state, action) {
     if (state === void 0) { state = exports.initialPDFState; }
     switch (action.type) {
         case actions_1.SET_ZOOM_LEVEL: {
@@ -42,3 +42,4 @@ exports.reducer = function (state, action) {
             return state;
     }
 };
+exports.reducer = reducer;

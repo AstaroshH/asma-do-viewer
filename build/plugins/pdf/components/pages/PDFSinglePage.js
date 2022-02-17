@@ -18,7 +18,7 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
 };
@@ -32,7 +32,7 @@ var styled_components_1 = __importDefault(require("styled-components"));
 var state_1 = require("../../state");
 var PDFSinglePage = function (props) {
     var pageNum = props.pageNum;
-    var _a = react_1.useContext(state_1.PDFContext).state, mainState = _a.mainState, paginated = _a.paginated, zoomLevel = _a.zoomLevel, numPages = _a.numPages, currentPage = _a.currentPage;
+    var _a = (0, react_1.useContext)(state_1.PDFContext).state, mainState = _a.mainState, paginated = _a.paginated, zoomLevel = _a.zoomLevel, numPages = _a.numPages, currentPage = _a.currentPage;
     var rendererRect = (mainState === null || mainState === void 0 ? void 0 : mainState.rendererRect) || null;
     var _pageNum = pageNum || currentPage;
     return (react_1.default.createElement(PageWrapper, { id: "pdf-page-wrapper", last: _pageNum >= numPages },

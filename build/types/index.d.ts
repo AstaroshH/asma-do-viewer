@@ -1,7 +1,7 @@
-import { FC, ReactElement } from "react";
-import { ThemedStyledProps } from "styled-components";
-import { IMainState } from "../state/reducer";
-import { FileLoaderFunction } from "../utils/fileLoaders";
+import { FC, ReactElement } from 'react';
+import { ThemedStyledProps } from 'styled-components';
+import { IMainState } from '../state/reducer';
+import { FileLoaderFunction } from '../utils/fileLoaders';
 export interface IConfig {
     header?: IHeaderConfig;
 }
@@ -28,6 +28,7 @@ export interface IDocument {
     uri: string;
     fileType?: string;
     fileData?: string | ArrayBuffer;
+    fileName?: string;
 }
 export interface DocRendererProps {
     mainState: IMainState;

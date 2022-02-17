@@ -16,18 +16,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LoadingIcon = exports.NextDocIcon = exports.PrevDocIcon = void 0;
 var react_1 = __importDefault(require("react"));
-exports.PrevDocIcon = function (props) {
+var PrevDocIcon = function (props) {
     return react_1.default.createElement(DocNavIcon, __assign({}, props));
 };
-exports.NextDocIcon = function (props) {
+exports.PrevDocIcon = PrevDocIcon;
+var NextDocIcon = function (props) {
     return react_1.default.createElement(DocNavIcon, __assign({}, props, { reverse: true }));
 };
+exports.NextDocIcon = NextDocIcon;
 var DocNavIcon = function (props) {
     var color = props.color, size = props.size, reverse = props.reverse;
     return (react_1.default.createElement("svg", { width: size || "100%", height: size || "100%", style: { transform: "" + (reverse ? "rotate(180deg)" : "") }, id: "arrow_left", version: "1.1", viewBox: "0 0 32 32", xmlSpace: "preserve" },
         react_1.default.createElement("path", { clipRule: "evenodd", d: "M31.106,15H3.278l8.325-8.293  c0.391-0.391,0.391-1.024,0-1.414c-0.391-0.391-1.024-0.391-1.414,0l-9.9,9.899c-0.385,0.385-0.385,1.029,0,1.414l9.9,9.9  c0.391,0.391,1.024,0.391,1.414,0c0.391-0.391,0.391-1.024,0-1.414L3.278,17h27.828c0.552,0,1-0.448,1-1  C32.106,15.448,31.658,15,31.106,15z", fill: color || "#aaa", fillRule: "evenodd", id: "Arrow_Back" })));
 };
-exports.LoadingIcon = function (props) {
+var LoadingIcon = function (props) {
     var color = props.color, size = props.size;
     return (react_1.default.createElement("svg", { width: size || "100%", height: size || "100%", version: "1.1", id: "Icons", viewBox: "0 0 32 32", xmlSpace: "preserve", style: { alignSelf: "center", justifySelf: "center" } },
         react_1.default.createElement("g", null,
@@ -40,3 +42,4 @@ exports.LoadingIcon = function (props) {
             react_1.default.createElement("path", { fill: color || "#aaa", d: "M29,15h-5c-0.6,0-1,0.4-1,1s0.4,1,1,1h5c0.6,0,1-0.4,1-1S29.6,15,29,15z" }),
             react_1.default.createElement("path", { fill: color || "#aaa", d: "M21.7,11.3c0.3,0,0.5-0.1,0.7-0.3l3.5-3.5c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-3.5,3.5c-0.4,0.4-0.4,1,0,1.4\n\t\tC21.1,11.2,21.4,11.3,21.7,11.3z" }))));
 };
+exports.LoadingIcon = LoadingIcon;

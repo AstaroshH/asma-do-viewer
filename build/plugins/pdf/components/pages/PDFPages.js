@@ -18,7 +18,7 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
 };
@@ -35,18 +35,18 @@ var reducer_1 = require("../../state/reducer");
 var PDFAllPages_1 = require("./PDFAllPages");
 var PDFSinglePage_1 = __importDefault(require("./PDFSinglePage"));
 var PDFPages = function () {
-    var _a = react_1.useContext(state_1.PDFContext), _b = _a.state, mainState = _b.mainState, paginated = _b.paginated, dispatch = _a.dispatch;
+    var _a = (0, react_1.useContext)(state_1.PDFContext), _b = _a.state, mainState = _b.mainState, paginated = _b.paginated, dispatch = _a.dispatch;
     var currentDocument = (mainState === null || mainState === void 0 ? void 0 : mainState.currentDocument) || null;
-    react_1.useEffect(function () {
-        dispatch(actions_1.setNumPages(reducer_1.initialPDFState.numPages));
+    (0, react_1.useEffect)(function () {
+        dispatch((0, actions_1.setNumPages)(reducer_1.initialPDFState.numPages));
     }, [currentDocument]);
     if (!currentDocument || currentDocument.fileData === undefined)
         return null;
     return (react_1.default.createElement(DocumentPDF, { file: currentDocument.fileData, onLoadSuccess: function (_a) {
             var numPages = _a.numPages;
-            return dispatch(actions_1.setNumPages(numPages));
+            return dispatch((0, actions_1.setNumPages)(numPages));
         }, loading: react_1.default.createElement("span", null, "Loading...") }, paginated ? react_1.default.createElement(PDFSinglePage_1.default, null) : react_1.default.createElement(PDFAllPages_1.PDFAllPages, null)));
 };
-var DocumentPDF = styled_components_1.default(react_pdf_1.Document)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  display: flex;\n  flex-direction: column;\n  margin: 0 auto;\n"], ["\n  display: flex;\n  flex-direction: column;\n  margin: 0 auto;\n"])));
+var DocumentPDF = (0, styled_components_1.default)(react_pdf_1.Document)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  display: flex;\n  flex-direction: column;\n  margin: 0 auto;\n"], ["\n  display: flex;\n  flex-direction: column;\n  margin: 0 auto;\n"])));
 exports.default = PDFPages;
 var templateObject_1;

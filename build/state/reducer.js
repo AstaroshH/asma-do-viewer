@@ -22,7 +22,7 @@ exports.initialState = {
     config: {},
     pluginRenderers: [],
 };
-exports.mainStateReducer = function (state, action) {
+var mainStateReducer = function (state, action) {
     if (state === void 0) { state = exports.initialState; }
     switch (action.type) {
         case actions_1.SET_ALL_DOCUMENTS: {
@@ -61,3 +61,4 @@ exports.mainStateReducer = function (state, action) {
             return state;
     }
 };
+exports.mainStateReducer = mainStateReducer;

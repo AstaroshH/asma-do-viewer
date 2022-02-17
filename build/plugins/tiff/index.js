@@ -29,7 +29,7 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
 };
@@ -44,14 +44,14 @@ var image_1 = __importDefault(require("../image"));
 var tiffToCanvas_1 = require("./tiffToCanvas");
 var TIFFRenderer = function (props) {
     var currentDocument = props.mainState.currentDocument;
-    var _a = react_1.useState(false), loadedCanvas = _a[0], setLoadedCanvas = _a[1];
-    var _b = react_1.useState(false), corruptedFile = _b[0], setCorruptedFile = _b[1];
-    react_1.useEffect(function () {
+    var _a = (0, react_1.useState)(false), loadedCanvas = _a[0], setLoadedCanvas = _a[1];
+    var _b = (0, react_1.useState)(false), corruptedFile = _b[0], setCorruptedFile = _b[1];
+    (0, react_1.useEffect)(function () {
         if (!currentDocument || loadedCanvas)
             return;
         var canvas = document.getElementById("tiff-img");
         try {
-            canvas && tiffToCanvas_1.parseTIFF(currentDocument.fileData, canvas);
+            canvas && (0, tiffToCanvas_1.parseTIFF)(currentDocument.fileData, canvas);
             setLoadedCanvas(true);
         }
         catch (error) {

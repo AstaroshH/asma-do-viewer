@@ -6,10 +6,10 @@ var state_1 = require("../state");
 /**
  * Custom Hook for loading the current document into context
  */
-exports.useRendererSelector = function () {
-    var _a = react_1.useContext(state_1.DocViewerContext).state, currentDocument = _a.currentDocument, pluginRenderers = _a.pluginRenderers;
-    var _b = react_1.useState(), CurrentRenderer = _b[0], setCurrentRenderer = _b[1];
-    react_1.useEffect(function () {
+var useRendererSelector = function () {
+    var _a = (0, react_1.useContext)(state_1.DocViewerContext).state, currentDocument = _a.currentDocument, pluginRenderers = _a.pluginRenderers;
+    var _b = (0, react_1.useState)(), CurrentRenderer = _b[0], setCurrentRenderer = _b[1];
+    (0, react_1.useEffect)(function () {
         if (!currentDocument)
             return;
         // Do not advance if the document does not yet have a fileType
@@ -37,3 +37,4 @@ exports.useRendererSelector = function () {
     }, [currentDocument]);
     return { CurrentRenderer: CurrentRenderer };
 };
+exports.useRendererSelector = useRendererSelector;

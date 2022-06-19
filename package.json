@@ -10,7 +10,7 @@
  "main": "build/index.js",
  "types": "build/index.d.ts",
  "dependencies": {
-    "pdfjs-dist": "2.14.305",
+    "pdfjs-dist": "2.4.456",
     "react-pdf": "5.0.0",
     "styled-components": "^5.3.5"
  },
